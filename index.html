@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>آبنوس | Beauty Salon</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --gold: #c9a45c;
+    --gold-light: #e6ca8c;
+    --black: #111;
+    --dark: #191919;
+    --gray: #aaa;
+    --white: #f7f3eb;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    line-height: 1.9;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    width: min(1120px, 92%);
+    margin: auto;
+}
+
+.gold {
+    color: var(--gold);
+}
+
+.section {
+    padding: 85px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    color: var(--gold);
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.section-title p {
+    color: var(--gray);
+}
+
+/* دکمه‌ها */
+
+.btn {
+    display: inline-block;
+    border: none;
+    background: var(--gold);
+    color: #151515;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: .3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px #c9a45c40;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+}
+
+.btn-outline:hover {
+    background: var(--gold);
+    color: #111;
+}
+
+/* هدر و لوگو */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15,15,15,.97);
+    border-bottom: 1px solid rgba(201,164,92,.25);
+    backdrop-filter: blur(12px);
+}
+
+.navbar {
+    min-height: 85px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+    color: var(--gold);
+    transition: .3s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo span {
+    font-size: 29px;
+    font-weight: 800;
+}
+
+.logo small {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--white);
+    direction: ltr;
+    margin-top: 5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #ddd;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.menu-btn {
+    display: none;
+    color: var(--gold);
+    background: none;
+    border: none;
+    font-size: 28px;
+}
+
+/* صفحه اصلی */
+
+.hero {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+    linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.48)),
+    url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1800&q=85')
+    center/cover;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    border: 1px solid #c9a45c35;
+    top: 15%;
+    right: -180px;
+    animation: floatCircle 9s ease-in-out infinite;
+}
+
+.hero-content {
+    max-width: 680px;
+    padding: 90px 0;
+    position: relative;
+    z-index: 2;
+    animation: slideIn 1.2s ease both;
+}
+
+.hero h1 {
+    font-size: clamp(35px,6vw,58px);
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.hero .slogan {
+    color: var(--gold-light);
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    color: #ddd;
+    margin-bottom: 28px;
+    font-size: 17px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* درباره ما */
+
+.about-grid, .booking-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 35px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 16px;
+    max-height: 400px;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.about-image img:hover {
+    transform: scale(1.025);
+}
+
+.about-text h3 {
+    color: var(--gold);
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    color: #ccc;
+    margin-bottom: 12px;
+}
+
+/* کارت خدمات و محصولات */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.card {
+    background: var(--dark);
+    border: 1px solid #35312a;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: .35s;
+    transform-style: preserve-3d;
+}
+
+.card:hover {
+    transform: translateY(-9px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 35px #0008;
+}
+
+.card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.card:hover img {
+    transform: scale(1.06);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card h3 {
+    color: var(--gold);
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #bbb;
+    font-size: 14px;
+}
+
+.card .btn {
+    margin-top: 15px;
+}
+
+.price-note {
+    color: var(--gold-light);
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+/* گالری */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid #39332a;
+    transition: .4s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.035);
+    border-color: var(--gold);
+    filter: brightness(1.12);
+}
+
+/* رزرو */
+
+.booking-section {
+    background: #171717;
+}
+
+.booking-box {
+    background: #202020;
+    border: 1px solid rgba(201,164,92,.4);
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.booking-box h3 {
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-size: 23px;
+}
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #ddd;
+    font-size: 14px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    background: #111;
+    border: 1px solid #45413a;
+    color: white;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+.form-control:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px #c9a45c20;
+}
+
+textarea.form-control {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* تقویم شمسی */
+
+.calendar {
+    background: #111;
+    border: 1px solid #51452f;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 8px;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.calendar-header button {
+    background: #29251e;
+    color: var(--gold);
+    border: 1px solid #51452f;
+    border-radius: 7px;
+    width: 35px;
+    height: 35px;
+    font-size: 19px;
+}
+
+.calendar-title {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    gap: 5px;
+}
+
+.calendar-day-name {
+    text-align: center;
+    color: var(--gold);
+    font-size: 12px;
+    padding: 7px 0;
+}
+
+.calendar-day {
+    border: 1px solid #37332c;
+    background: #202020;
+    color: white;
+    min-height: 39px;
+    border-radius: 7px;
+    font-size: 13px;
+}
+
+.calendar-day:hover:not(:disabled) {
+    border-color: var(--gold);
+    background: #393020;
+}
+
+.calendar-day.selected {
+    background: var(--gold);
+    color: #111;
+    font-weight: 800;
+}
+
+.calendar-day:disabled {
+    opacity: .25;
+    cursor: not-allowed;
+}
+
+.selected-date {
+    color: var(--gold-light);
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+/* ظرفیت رزرو */
+
+.capacity-box {
+    background: #151b16;
+    border: 1px solid #426345;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 20px 0;
+}
+
+.capacity-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 0;
+}
+
+.capacity-number {
+    font-size: 24px;
+    color: #79d28a;
+    font-weight: 800;
+}
+
+.capacity-message {
+    font-size: 13px;
+    color: #b7cbb8;
+    margin-top: 8px;
+}
+
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 9px;
+    margin-top: 10px;
+}
+
+.time-option {
+    border: 1px solid #51452f;
+    background: #171717;
+    color: var(--gold);
+    border-radius: 8px;
+    padding: 10px 5px;
+    font-size: 13px;
+}
+
+.time-option:hover:not(:disabled) {
+    background: var(--gold);
+    color: #111;
+}
+
+.time-option.selected {
+    background: var(--gold);
+    color: #111;
+    font-weight: 800;
+}
+
+.time-option:disabled {
+    background: #292929;
+    color: #777;
+    border-color: #333;
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+
+.form-message {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    display: none;
+    font-size: 14px;
+}
+
+.form-message.success {
+    display: block;
+    background: #18321e;
+    color: #a4e4af;
+}
+
+.form-message.error {
+    display: block;
+    background: #3b1919;
+    color: #ffb1b1;
+}
+
+.notice {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+/* سؤالات متداول */
+
+.faq-section {
+    background: #151515;
+}
+
+.faq-container {
+    max-width: 850px;
+    margin: auto;
+}
+
+.faq-item {
+    background: #202020;
+    border: 1px solid #40392d;
+    border-radius: 12px;
+    margin-bottom: 13px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.faq-item:hover {
+    border-color: var(--gold);
+}
+
+.faq-question {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: var(--white);
+    text-align: right;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.faq-question span:last-child {
+    color: var(--gold);
+    font-size: 22px;
+    transition: transform .3s;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    color: #bbb;
+    font-size: 14px;
+    transition: max-height .35s ease, padding .35s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 180px;
+    padding: 0 20px 18px;
+}
+
+.faq-item.active .faq-question span:last-child {
+    transform: rotate(45deg);
+}
+
+/* تماس با ما */
+
+.contact-box {
+    text-align: center;
+    background: #1b1b1b;
+    border: 1px solid #39332a;
+    border-radius: 15px;
+    padding: 35px;
+}
+
+.contact-box p {
+    margin: 8px 0;
+}
+
+footer {
+    background: #090909;
+    text-align: center;
+    padding: 25px 10px;
+    color: #999;
+    border-top: 1px solid #332c20;
+}
+
+/* واتساپ */
+
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #20b85a;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 30px;
+    z-index: 90;
+    font-weight: 700;
+    box-shadow: 0 4px 15px #0008;
+    transition: .3s;
+}
+
+.whatsapp:hover {
+    transform: translateY(-5px);
+}
+
+/* ساعت زنده */
+
+.live-clock {
+    display: inline-block;
+    color: var(--gold-light);
+    border: 1px solid #c9a45c70;
+    border-radius: 30px;
+    padding: 5px 16px;
+    font-size: 13px;
+    margin-bottom: 18px;
+    background: #1119;
+}
+
+/* افکت ظاهر شدن بخش‌ها */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatCircle {
+    0%,100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(30px) rotate(15deg);
+    }
+}
+
+/* واکنش‌گرایی موبایل */
+
+@media(max-width:800px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 85px;
+        right: 0;
+        width: 100%;
+        background: #151515;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid var(--gold);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .cards, .gallery-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .about-grid, .booking-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:520px) {
+    .cards, .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid img {
+        height: 220px;
+    }
+
+    .booking-box {
+        padding: 17px;
+    }
+
+    .time-grid {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .hero {
+        min-height: 520px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+    <header>
+    <div class="container navbar">
+        <a class="logo" href="#home">
+            <span>آبنوس</span>
+            <small>BEAUTY SALON</small>
+        </a>
+
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="باز کردن منو">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" onclick="closeMenu()">خانه</a></li>
+            <li><a href="#about" onclick="closeMenu()">درباره ما</a></li>
+            <li><a href="#services" onclick="closeMenu()">خدمات</a></li>
+            <li><a href="#shop" onclick="closeMenu()">فروشگاه</a></li>
+            <li><a href="#gallery" onclick="closeMenu()">گالری</a></li>
+            <li><a href="#booking" onclick="closeMenu()">رزرو آنلاین</a></li>
+            <li><a href="#faq" onclick="closeMenu()">سؤالات متداول</a></li>
+            <li><a href="#contact" onclick="closeMenu()">تماس با ما</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- صفحه اصلی -->
+<section class="hero" id="home">
+    <div class="container hero-content">
+        <div class="live-clock" id="liveClock">در حال دریافت ساعت...</div>
+
+        <h1>آبنوس؛ <span class="gold">زیبایی، فراتر از انتظار</span></h1>
+
+        <div class="slogan">
+            زیبایی تو، امضای خاص توست.
+        </div>
+
+        <p>
+            به سالن زیبایی آبنوس خوش آمدید؛
+            جایی برای آرامش، درخشش و تجربه‌ای متفاوت از زیبایی.
+            ما اینجا هستیم تا زیبایی طبیعی شما را برجسته‌تر کنیم.
+        </p>
+
+        <div class="hero-actions">
+            <a href="#booking" class="btn">رزرو نوبت آنلاین</a>
+            <a href="#services" class="btn btn-outline">مشاهده خدمات</a>
+        </div>
+    </div>
+</section>
+
+<!-- درباره ما -->
+<section class="section reveal" id="about">
+    <div class="container about-grid">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=80" alt="فضای سالن زیبایی">
+        </div>
+
+        <div class="about-text">
+            <h3>درباره سالن زیبایی آبنوس</h3>
+
+            <p>
+                سالن زیبایی آبنوس با مدیریت خانم احمدی،
+                محیطی حرفه‌ای و آرام برای ارائه خدمات زیبایی و مراقبتی فراهم کرده است.
+            </p>
+
+            <p>
+                هدف ما ارائه خدمات باکیفیت، توجه به سلیقه شما
+                و ایجاد تجربه‌ای دلنشین در هر بار مراجعه است.
+            </p>
+
+            <p class="gold">
+                در آبنوس، زیبایی شما اولویت ماست.
+            </p>
+
+            <a href="#booking" class="btn">دریافت نوبت</a>
+        </div>
+    </div>
+</section>
+
+<!-- خدمات -->
+<section class="section reveal" id="services">
+    <div class="container">
+        <div class="section-title">
+            <h2>خدمات سالن آبنوس</h2>
+            <p>زیبایی و مراقبت با توجه به سلیقه شما</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&w=700&q=80" alt="خدمات مو">
+                <div class="card-body">
+                    <h3>خدمات مو</h3>
+                    <p>رنگ، لایت، مش، کوتاهی، براشینگ و احیای مو.</p>
+                    <p class="price-note">برای اطلاع از قیمت با سالن تماس بگیرید.</p>
+                    <a href="#booking" class="btn">رزرو این خدمت</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=700&q=80" alt="خدمات ناخن">
+                <div class="card-body">
+                    <h3>خدمات ناخن</h3>
+                    <p>مانیکور، پدیکور، کاشت و طراحی ناخن.</p>
+                    <p class="price-note">برای اطلاع از قیمت با سالن تماس بگیرید.</p>
+                    <a href="#booking" class="btn">رزرو این خدمت</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=700&q=80" alt="میکاپ">
+                <div class="card-body">
+                    <h3>میکاپ</h3>
+                    <p>آرایش روزانه، مجلسی و تخصصی.</p>
+                    <p class="price-note">برای اطلاع از قیمت با سالن تماس بگیرید.</p>
+                    <a href="#booking" class="btn">رزرو این خدمت</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=700&q=80" alt="خدمات پوست">
+                <div class="card-body">
+                    <h3>خدمات پوست</h3>
+                    <p>پاکسازی، فیشیال و مراقبت‌های پوستی.</p>
+                    <p class="price-note">برای اطلاع از قیمت با سالن تماس بگیرید.</p>
+                    <a href="#booking" class="btn">رزرو این خدمت</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=700&q=80" alt="ابرو و مژه">
+                <div class="card-body">
+                    <h3>ابرو و مژه</h3>
+                    <p>لیفت، لمینت، اصلاح و خدمات تخصصی مژه.</p>
+                    <p class="price-note">برای اطلاع از قیمت با سالن تماس بگیرید.</p>
+                    <a href="#booking" class="btn">رزرو این خدمت</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=700&q=80" alt="خدمات عروس">
+                <div class="card-body">
+                    <h3>خدمات عروس</h3>
+                    <p>میکاپ و آماده‌سازی تخصصی عروس.</p>
+                    <p class="price-note">برای اطلاع از قیمت با سالن تماس بگیرید.</p>
+                    <a href="#booking" class="btn">رزرو این خدمت</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- فروشگاه محصولات -->
+<section class="section reveal" id="shop">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>فروشگاه محصولات زیبایی</h2>
+            <p>انتخابی از محصولات مراقبتی و زیبایی برای درخشش بیشتر شما</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=80" alt="کرم آبرسان">
+                <div class="card-body">
+                    <h3>کرم آبرسان پوست</h3>
+                    <p>مناسب مراقبت روزانه پوست</p>
+                    <p class="price-note">۳۸۰,۰۰۰ تومان</p>
+                    <button class="btn" onclick="addToCart('کرم آبرسان پوست',380000)">افزودن به سبد خرید</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=700&q=80" alt="سرم صورت">
+                <div class="card-body">
+                    <h3>سرم مراقبت صورت</h3>
+                    <p>برای روتین مراقبت از پوست</p>
+                    <p class="price-note">۴۵۰,۰۰۰ تومان</p>
+                    <button class="btn" onclick="addToCart('سرم مراقبت صورت',450000)">افزودن به سبد خرید</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=700&q=80" alt="ست مراقبت پوست">
+                <div class="card-body">
+                    <h3>ست مراقبت پوست</h3>
+                    <p>مجموعه محصولات مراقبتی</p>
+                    <p class="price-note">۸۹۰,۰۰۰ تومان</p>
+                    <button class="btn" onclick="addToCart('ست مراقبت پوست',890000)">افزودن به سبد خرید</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=80" alt="رژ لب">
+                <div class="card-body">
+                    <h3>رژ لب</h3>
+                    <p>رنگ‌بندی متنوع و جذاب</p>
+                    <p class="price-note">۲۹۰,۰۰۰ تومان</p>
+                    <button class="btn" onclick="addToCart('رژ لب',290000)">افزودن به سبد خرید</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=700&q=80" alt="ریمل">
+                <div class="card-body">
+                    <h3>ریمل حجم‌دهنده</h3>
+                    <p>برای آرایش چشم و مژه</p>
+                    <p class="price-note">۳۲۰,۰۰۰ تومان</p>
+                    <button class="btn" onclick="addToCart('ریمل حجم‌دهنده',320000)">افزودن به سبد خرید</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=700&q=80" alt="ماسک صورت">
+                <div class="card-body">
+                    <h3>ماسک صورت</h3>
+                    <p>برای روتین مراقبت هفتگی</p>
+                    <p class="price-note">۲۴۰,۰۰۰ تومان</p>
+                    <button class="btn" onclick="addToCart('ماسک صورت',240000)">افزودن به سبد خرید</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1600612253971-422e7f7faeb6?auto=format&fit=crop&w=700&q=80" alt="شامپو">
+                <div class="card-body">
+                    <h3>شامپو مراقبت مو</h3>
+                    <p>مناسب شست‌وشوی روزانه مو</p>
+                    <p class="price-note">۳۵۰,۰۰۰ تومان</p>
+                    <button class="btn" onclick="addToCart('شامپو مراقبت مو',350000)">افزودن به سبد خرید</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&w=700&q=80" alt="روغن مو">
+                <div class="card-body">
+                    <h3>روغن مراقبت مو</h3>
+                    <p>برای مراقبت و نرمی مو</p>
+                    <p class="price-note">۴۲۰,۰۰۰ تومان</p>
+                    <button class="btn" onclick="addToCart('روغن مراقبت مو',420000)">افزودن به سبد خرید</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=80" alt="ضد آفتاب">
+                <div class="card-body">
+                    <h3>کرم ضد آفتاب</h3>
+                    <p>برای محافظت روزانه از پوست</p>
+                    <p class="price-note">۵۱۰,۰۰۰ تومان</p>
+                    <button class="btn" onclick="addToCart('کرم ضد آفتاب',510000)">افزودن به سبد خرید</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1599733589046-833c9f4f3f4b?auto=format&fit=crop&w=700&q=80" alt="عطر">
+                <div class="card-body">
+                    <h3>عطر و اسپری بدن</h3>
+                    <p>رایحه‌ای دلنشین برای روزهای شما</p>
+                    <p class="price-note">۶۵۰,۰۰۰ تومان</p>
+                    <button class="btn" onclick="addToCart('عطر و اسپری بدن',650000)">افزودن به سبد خرید</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1631214540242-8a3e8c3a4e0b?auto=format&fit=crop&w=700&q=80" alt="لاک ناخن">
+                <div class="card-body">
+                    <h3>لاک ناخن</h3>
+                    <p>رنگ‌های زیبا و متنوع</p>
+                    <p class="price-note">۱۵۰,۰۰۰ تومان</p>
+                    <button class="btn" onclick="addToCart('لاک ناخن',150000)">افزودن به سبد خرید</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=80" alt="براش آرایشی">
+                <div class="card-body">
+                    <h3>ست براش آرایشی</h3>
+                    <p>ابزار کاربردی برای آرایش حرفه‌ای</p>
+                    <p class="price-note">۵۸۰,۰۰۰ تومان</p>
+                    <button class="btn" onclick="addToCart('ست براش آرایشی',580000)">افزودن به سبد خرید</button>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="notice">
+            قیمت‌ها و تصاویر نمونه هستند؛ قبل از انتشار سایت، اطلاعات واقعی محصولات را جایگزین کنید.
+        </p>
+
+        <div style="text-align:center;margin-top:30px">
+            <button class="btn btn-outline" onclick="showCart()">
+                مشاهده سبد خرید
+                (<span id="cartCount">۰</span>)
+            </button>
+        </div>
+
+        <div id="cartDetails" class="booking-box" style="display:none;margin-top:20px"></div>
+
+    </div>
+</section>
+
+<!-- گالری -->
+<section class="section reveal" id="gallery">
+    <div class="container">
+        <div class="section-title">
+            <h2>گالری تصاویر</h2>
+            <p>نمونه‌ای از زیبایی و هنر در سالن آبنوس</p>
+        </div>
+
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=80" alt="گالری سالن">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80" alt="گالری سالن">
+            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=700&q=80" alt="گالری سالن">
+            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=700&q=80" alt="گالری سالن">
+            <img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=700&q=80" alt="گالری سالن">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=80" alt="گالری سالن">
+        </div>
+    </div>
+</section>
+
+<!-- رزرو آنلاین -->
+<section class="section booking-section reveal" id="booking">
+    <div class="container">
+        <div class="section-title">
+            <h2>رزرو آنلاین نوبت</h2>
+            <p>تاریخ و ساعت موردنظرتان را انتخاب کنید</p>
+        </div>
+
+        <div class="booking-grid">
+            <div class="booking-box">
+                <h3>ثبت درخواست رزرو</h3>
+
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="customerName">نام و نام خانوادگی</label>
+                        <input class="form-control" id="customerName" required maxlength="100" placeholder="نام شما">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customerPhone">شماره تلفن همراه</label>
+                        <input class="form-control" id="customerPhone" required inputmode="tel" placeholder="مثلاً 09123456789">
+                    </div>
+
+                    <div class="form-group">
+                        <label>انتخاب تاریخ شمسی</label>
+                        <div class="calendar">
+                            <div class="calendar-header">
+                                <button type="button" id="prevMonth" aria-label="ماه قبل">›</button>
+                                <span class="calendar-title" id="calendarTitle"></span>
+                                <button type="button" id="nextMonth" aria-label="ماه بعد">‹</button>
+                            </div>
+                            <div class="calendar-grid" id="calendarGrid"></div>
+                        </div>
+                        <div class="selected-date" id="selectedDateText">لطفاً تاریخ را انتخاب کنید.</div>
+                    </div>
+
+                    <input type="hidden" id="bookingDate">
+
+                    <div class="capacity-box">
+                        <div class="capacity-row">
+                            <span>ظرفیت کل روز</span>
+                            <strong>۸ نفر</strong>
+                        </div>
+                        <div class="capacity-row">
+                            <span>رزروهای ثبت‌شده</span>
+                            <strong id="bookedCount">-</strong>
+                        </div>
+                        <div class="capacity-row">
+                            <span>ظرفیت باقی‌مانده</span>
+                            <span class="capacity-number" id="remainingCount">-</span>
+                        </div>
+                        <div class="capacity-message" id="availabilityMessage">
+                            ابتدا یک تاریخ انتخاب کنید.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>انتخاب ساعت</label>
+                        <div class="time-grid" id="timeGrid">
+                            <span class="notice">ابتدا تاریخ را انتخاب کنید.</span>
+                        </div>
+                        <input type="hidden" id="bookingTime">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bookingService">نوع خدمات</label>
+                        <select class="form-control" id="bookingService" required>
+                            <option value="">انتخاب خدمات</option>
+                            <option>خدمات مو</option>
+                            <option>خدمات ناخن</option>
+                            <option>میکاپ</option>
+                            <option>خدمات پوست</option>
+                            <option>ابرو و مژه</option>
+                            <option>خدمات عروس</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bookingNote">توضیحات (اختیاری)</label>
+                        <textarea class="form-control" id="bookingNote" placeholder="توضیحات شما..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn" id="submitButton" style="width:100%">
+                        ثبت نهایی رزرو
+                    </button>
+
+                    <div id="formMessage" class="form-message"></div>
+
+                    <p class="notice">
+                        اطلاعات شخصی شما برای سایر مشتریان نمایش داده نمی‌شود.
+                        ثبت رزرو پس از تأیید سرور نهایی خواهد شد.
+                    </p>
+                </form>
+            </div>
+
+            <div class="booking-box">
+                <h3>راهنمای رزرو</h3>
+                <p>۱. نام و شماره تماس خود را وارد کنید.</p>
+                <p>۲. تاریخ شمسی موردنظر را انتخاب کنید.</p>
+                <p>۳. ساعت‌های آزاد همان روز را مشاهده کنید.</p>
+                <p>۴. نوع خدمات را انتخاب کنید.</p>
+                <p>۵. دکمه ثبت نهایی رزرو را بزنید.</p>
+
+                <hr style="border-color:#40392d;margin:22px 0">
+
+                <h3>ساعات کاری</h3>
+                <p>هر روز از ساعت ۱۰ صبح تا ۱۸ عصر</p>
+                <p class="notice">ظرفیت روزانه: حداکثر ۸ رزرو</p>
+                <p class="notice">هر ساعت فقط یک رزرو پذیرفته می‌شود.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- سؤالات متداول -->
+<section class="section faq-section reveal" id="faq">
+    <div class="container">
+        <div class="section-title">
+            <h2>سؤالات متداول</h2>
+            <p>پاسخ پرسش‌های پرتکرار شما درباره سالن آبنوس</p>
+        </div>
+
+        <div class="faq-container">
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>چطور می‌توانم نوبت رزرو کنم؟</span>
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    کافی است وارد بخش رزرو آنلاین شوید، اطلاعات خود را وارد کنید،
+                    تاریخ و ساعت آزاد را انتخاب کنید و درخواست خود را ثبت کنید.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>آیا امکان انتخاب ساعت دلخواه وجود دارد؟</span>
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    بله. ساعت‌های آزاد هر روز نمایش داده می‌شوند.
+                    ساعت‌هایی که قبلاً رزرو شده‌اند قابل انتخاب نیستند.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>آیا می‌توانم نوبتم را تغییر دهم؟</span>
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    برای تغییر یا لغو نوبت، لطفاً با سالن تماس بگیرید
+                    یا از طریق واتساپ پیام ارسال کنید.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>چگونه از قیمت خدمات مطلع شوم؟</span>
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    برای دریافت قیمت دقیق خدمات و اطلاع از شرایط آن‌ها،
+                    با مدیریت سالن تماس بگیرید.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>آیا برای رزرو باید شماره موبایل وارد کنم؟</span>
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    بله. شماره موبایل برای ثبت و پیگیری درخواست رزرو
+                    دریافت می‌شود و در سایت برای سایر کاربران نمایش داده نمی‌شود.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    <span>ساعات کاری سالن چه زمانی است؟</span>
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    ساعات کاری درج‌شده در سایت از ۱۰ صبح تا ۱۸ عصر است.
+                    برای اطمینان از ساعت حضور، با سالن هماهنگ کنید.
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- تماس با ما -->
+<section class="section reveal" id="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>ارتباط با ما</h2>
+            <p>برای مشاوره و دریافت اطلاعات بیشتر با ما تماس بگیرید.</p>
+        </div>
+
+        <div class="contact-box">
+            <h3 class="gold">سالن زیبایی آبنوس</h3>
+            <p>مدیریت: خانم احمدی</p>
+            <p>تلفن: 09153019446</p>
+            <p>آدرس: تهران، خیابان پاسداران</p>
+            <a class="btn" href="https://wa.me/989153019446" target="_blank" rel="noopener">
+                ارتباط از طریق واتساپ
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© تمامی حقوق برای سالن زیبایی آبنوس محفوظ است.</p>
+    <p style="color:#c9a45c;margin-top:5px">زیبایی تو، امضای خاص توست.</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/989153019446" target="_blank" rel="noopener">
+    واتساپ
+</a>
+
+<script>
+/* تنظیمات اصلی سایت */
+
+const DAILY_CAPACITY = 8;
+
+const OPEN_HOURS = [
+    "10:00","11:00","12:00","13:00","14:00",
+    "15:00","16:00","17:00","18:00"
+];
+
+const WHATSAPP_NUMBER = "989153019446";
+
+let selectedJalaliDate = null;
+let selectedGregorianDate = null;
+let selectedTime = null;
+let currentJYear;
+let currentJMonth;
+let cart = [];
+
+
+/* منوی موبایل */
+
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+function closeMenu() {
+    document.getElementById("navLinks").classList.remove("active");
+}
+
+
+/* ساعت زنده */
+
+function updateClock() {
+    const clock = document.getElementById("liveClock");
+
+    const now = new Date();
+
+    const time = now.toLocaleTimeString("fa-IR", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+    });
+
+    clock.textContent = "امروز " +
+        now.toLocaleDateString("fa-IR") +
+        " | ساعت " + time;
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+
+/* ابزار تبدیل تاریخ شمسی و میلادی */
+
+const persianFormatter = new Intl.DateTimeFormat(
+    "en-u-ca-persian-nu-latn",
+    {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric"
+    }
+);
+
+function getJalaliParts(date) {
+    const parts = persianFormatter.formatToParts(date);
+    const result = {};
+
+    parts.forEach(part => {
+        if (part.type !== "literal") {
+            result[part.type] = Number(part.value);
+        }
+    });
+
+    return {
+        year: result.year,
+        month: result.month,
+        day: result.day
+    };
+}
+
+function jalaliToGregorian(jy, jm, jd) {
+    const start = Date.UTC(jy + 621, 0, 1);
+    const end = Date.UTC(jy + 622, 3, 1);
+    const oneDay = 86400000;
+
+    for (
+        let timestamp = start;
+        timestamp < end;
+        timestamp += oneDay
+    ) {
+        const date = new Date(timestamp);
+        const parts = getJalaliParts(date);
+
+        if (
+            parts.year === jy &&
+            parts.month === jm &&
+            parts.day === jd
+        ) {
+            return date;
+        }
+    }
+
+    return null;
+}
+
+function toISODate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+}
+
+function formatJalaliDate(date) {
+    const p = getJalaliParts(date);
+
+    return (
+        `${p.year}/` +
+        `${String(p.month).padStart(2, "0")}/` +
+        `${String(p.day).padStart(2, "0")}`
+    );
+}
+
+function monthName(month) {
+    const names = [
+        "فروردین","اردیبهشت","خرداد","تیر",
+        "مرداد","شهریور","مهر","آبان",
+        "آذر","دی","بهمن","اسفند"
+    ];
+
+    return names[month - 1];
+}
+
+function getMonthLength(year, month) {
+    const first = jalaliToGregorian(year, month, 1);
+
+    let nextYear = year;
+    let nextMonth = month + 1;
+
+    if (nextMonth === 13) {
+        nextMonth = 1;
+        nextYear++;
+    }
+
+    const next = jalaliToGregorian(
+        nextYear,
+        nextMonth,
+        1
+    );
+
+    if (!first || !next) {
+        return month <= 6 ? 31 : 30;
+    }
+
+    return Math.round(
+        (next - first) / 86400000
+    );
+}
+
+
+/* تقویم شمسی */
+
+function renderCalendar() {
+    const grid = document.getElementById("calendarGrid");
+    const title = document.getElementById("calendarTitle");
+
+    title.textContent =
+        `${monthName(currentJMonth)} ${currentJYear}`;
+
+    grid.innerHTML = "";
+
+    const weekdays = ["ش","ی","د","س","چ","پ","ج"];
+
+    weekdays.forEach(day => {
+        const element = document.createElement("div");
+
+        element.className = "calendar-day-name";
+        element.textContent = day;
+
+        grid.appendChild(element);
+    });
+
+    const firstDay = jalaliToGregorian(
+        currentJYear,
+        currentJMonth,
+        1
+    );
+
+    if (!firstDay) return;
+
+    const offset = (firstDay.getDay() + 1) % 7;
+    const days = getMonthLength(
+        currentJYear,
+        currentJMonth
+    );
+
+    for (let i = 0; i < offset; i++) {
+        grid.appendChild(
+            document.createElement("div")
+        );
+    }
+
+    const todayISO = toISODate(new Date());
+
+    for (let day = 1; day <= days; day++) {
+        const date = jalaliToGregorian(
+            currentJYear,
+            currentJMonth,
+            day
+        );
+
+        if (!date) continue;
+
+        const iso = toISODate(date);
+
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "calendar-day";
+        button.textContent = day;
+
+        if (iso < todayISO) {
+            button.disabled = true;
+        }
+
+        if (
+            selectedJalaliDate &&
+            selectedJalaliDate.year === currentJYear &&
+            selectedJalaliDate.month === currentJMonth &&
+            selectedJalaliDate.day === day
+        ) {
+            button.classList.add("selected");
+        }
+
+        button.addEventListener("click", () => {
+            selectDate(
+                currentJYear,
+                currentJMonth,
+                day
+            );
+        });
+
+        grid.appendChild(button);
+    }
+}
+
+function selectDate(year, month, day) {
+    const date = jalaliToGregorian(year, month, day);
+
+    if (!date) return;
+
+    const iso = toISODate(date);
+
+    if (iso < toISODate(new Date())) return;
+
+    selectedJalaliDate = {
+        year,
+        month,
+        day
+    };
+
+    selectedGregorianDate = iso;
+    selectedTime = null;
+
+    document.getElementById("bookingDate").value = iso;
+    document.getElementById("bookingTime").value = "";
+
+    document.getElementById("selectedDateText").textContent =
+        `تاریخ انتخاب‌شده: ${formatJalaliDate(date)}`;
+
+    renderCalendar();
+    loadAvailability(iso);
+}
+
+function changeMonth(amount) {
+    currentJMonth += amount;
+
+    if (currentJMonth > 12) {
+        currentJMonth = 1;
+        currentJYear++;
+    }
+
+    if (currentJMonth < 1) {
+        currentJMonth = 12;
+        currentJYear--;
+    }
+
+    const todayParts = getJalaliParts(new Date());
+
+    if (
+        currentJYear < todayParts.year ||
+        (
+            currentJYear === todayParts.year &&
+            currentJMonth < todayParts.month
+        )
+    ) {
+        currentJYear = todayParts.year;
+        currentJMonth = todayParts.month;
+    }
+
+    renderCalendar();
+}
+
+document.getElementById("prevMonth").addEventListener(
+    "click",
+    () => changeMonth(-1)
+);
+
+document.getElementById("nextMonth").addEventListener(
+    "click",
+    () => changeMonth(1)
+);
+
+
+/* دریافت ظرفیت و ساعت‌های رزروشده از سرور */
+
+async function loadAvailability(date) {
+    const message = document.getElementById("availabilityMessage");
+    const timeGrid = document.getElementById("timeGrid");
+
+    message.textContent = "در حال دریافت وضعیت رزروها...";
+    timeGrid.innerHTML = "در حال بررسی ساعت‌ها...";
+
+    document.getElementById("remainingCount").textContent = "-";
+    document.getElementById("bookedCount").textContent = "-";
+
+    selectedTime = null;
+    document.getElementById("bookingTime").value = "";
+
+    try {
+        const response = await fetch(
+            `availability.php?date=${encodeURIComponent(date)}`,
+            {
+                cache: "no-store"
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("خطا در ارتباط با سرور");
+        }
+
+        const data = await response.json();
+
+        // هماهنگ با خروجی availability.php
+        const bookedTimes = data.booked || [];
+        const remaining = Number(data.remaining);
+
+        if (
+            !Array.isArray(bookedTimes) ||
+            !Number.isFinite(remaining)
+        ) {
+            throw new Error(
+                "اطلاعات ساعت‌ها از سرور درست دریافت نشد."
+            );
+        }
+
+        document.getElementById("remainingCount").textContent =
+            remaining;
+
+        document.getElementById("bookedCount").textContent =
+            DAILY_CAPACITY - remaining;
+
+        if (remaining <= 0) {
+            message.textContent =
+                "ظرفیت این روز تکمیل شده است. لطفاً تاریخ دیگری انتخاب کنید.";
+        } else {
+            message.textContent =
+                `برای این روز ${remaining} ظرفیت باقی مانده است.`;
+        }
+
+        renderTimeSlots(bookedTimes, remaining);
+
+    } catch (error) {
+        message.textContent =
+            error.message +
+            " لطفاً اتصال سایت به سرور و دیتابیس را بررسی کنید.";
+
+        timeGrid.innerHTML = "";
+
+        showMessage(
+            "اطلاعات ظرفیت دریافت نشد. تا زمان بررسی سرور امکان رزرو وجود ندارد.",
+            "error"
+        );
+    }
+}
+
+
+/* نمایش ساعت‌ها */
+
+function renderTimeSlots(bookedTimes, remaining) {
+    const grid = document.getElementById("timeGrid");
+
+    grid.innerHTML = "";
+
+    OPEN_HOURS.forEach(time => {
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "time-option";
+        button.textContent = time;
+
+        const isBooked = bookedTimes.includes(time);
+
+        if (isBooked) {
+            button.disabled = true;
+            button.title = "این ساعت قبلاً رزرو شده است";
+            button.textContent = time + " - رزرو شده";
+        } else if (remaining <= 0) {
+            button.disabled = true;
+            button.title = "ظرفیت روز تکمیل شده است";
+        }
+
+        button.addEventListener("click", () => {
+            if (button.disabled) return;
+
+            document.querySelectorAll(".time-option").forEach(item => {
+                item.classList.remove("selected");
+            });
+
+            button.classList.add("selected");
+
+            selectedTime = time;
+
+            document.getElementById("bookingTime").value = time;
+        });
+
+        grid.appendChild(button);
+    });
+}
+
+
+/* پیام‌های سایت */
+
+function showMessage(message, type) {
+    const box = document.getElementById("formMessage");
+
+    box.textContent = message;
+    box.className = "form-message " + type;
+}
+
+
+/* ثبت رزرو در PHP و MySQL */
+
+document.getElementById("bookingForm").addEventListener(
+    "submit",
+    async function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("customerName").value.trim();
+
+        let phone = document.getElementById("customerPhone").value.trim();
+
+        const date = document.getElementById("bookingDate").value;
+        const time = document.getElementById("bookingTime").value;
+
+        const service = document.getElementById("bookingService").value;
+        const note = document.getElementById("bookingNote").value.trim();
+
+        if (!name || !phone || !date || !time || !service) {
+            showMessage(
+                "لطفاً تمام اطلاعات ضروری را تکمیل کنید و ساعت رزرو را انتخاب کنید.",
+                "error"
+            );
+            return;
+        }
+
+        // تبدیل شماره به فرمت مورد قبول PHP
+        phone = phone.replace(/[\s-]/g, "");
+
+        if (phone.startsWith("+98")) {
+            phone = "0" + phone.slice(3);
+        } else if (phone.startsWith("98")) {
+            phone = "0" + phone.slice(2);
+        } else if (/^9\d{9}$/.test(phone)) {
+            phone = "0" + phone;
+        }
+
+        if (!/^09\d{9}$/.test(phone)) {
+            showMessage(
+                "شماره موبایل معتبر نیست. شماره را مانند 09123456789 وارد کنید.",
+                "error"
+            );
+            return;
+        }
+
+        const button = document.getElementById("submitButton");
+
+        button.disabled = true;
+        button.textContent = "در حال ثبت رزرو...";
+
+        try {
+            const response = await fetch("book.php", {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                // نام فیلدها مطابق book.php
+                body: JSON.stringify({
+                    name: name,
+                    phone: phone,
+                    date: date,
+                    time: time,
+                    service: service,
+                    note: note
+                })
+            });
+
+            const result = await response.json();
+
+            if (!response.ok || !result.success) {
+                throw new Error(
+                    result.message || "ثبت رزرو انجام نشد."
+                );
+            }
+
+            showMessage(
+                "رزرو شما با موفقیت ثبت شد. کد پیگیری: " +
+                result.booking_id,
+                "success"
+            );
+
+            const jalaliDate = formatJalaliDate(
+                new Date(date + "T12:00:00")
+            );
+
+            const whatsappText =
+                `سلام، رزرو من در سالن زیبایی آبنوس ثبت شد.\n` +
+                `تاریخ: ${jalaliDate}\n` +
+                `ساعت: ${time}\n` +
+                `خدمت: ${service}\n` +
+                `کد پیگیری: ${result.booking_id}`;
+
+            // به‌روزرسانی ظرفیت پس از ثبت موفق
+            await loadAvailability(date);
+
+            // پاک کردن اطلاعات فرم
+            document.getElementById("bookingForm").reset();
+
+            selectedTime = null;
+
+            document.getElementById("bookingTime").value = "";
+
+            // ارسال پیام واتساپ توسط مشتری
+            window.open(
+                `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappText)}`,
+                "_blank"
+            );
+
+        } catch (error) {
+            showMessage(error.message, "error");
+
+            // دریافت مجدد وضعیت ساعت‌ها
+            if (date) {
+                await loadAvailability(date);
+            }
+
+        } finally {
+            button.disabled = false;
+            button.textContent = "ثبت نهایی رزرو";
+        }
+    }
+);
+
+
+/* سؤالات متداول */
+
+document.querySelectorAll(".faq-question").forEach(question => {
+    question.addEventListener("click", () => {
+        const item = question.closest(".faq-item");
+
+        item.classList.toggle("active");
+    });
+});
+
+
+/* افکت ظاهر شدن بخش‌ها هنگام اسکرول */
+
+const revealObserver = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+document.querySelectorAll(".reveal").forEach(section => {
+    revealObserver.observe(section);
+});
+
+
+/* سبد خرید */
+
+function addToCart(name, price) {
+    cart.push({
+        name: name,
+        price: price
+    });
+
+    updateCartCount();
+
+    alert("محصول به سبد خرید اضافه شد.");
+}
+
+function updateCartCount() {
+    document.getElementById("cartCount").textContent =
+        cart.length.toLocaleString("fa-IR");
+}
+
+function showCart() {
+    const box = document.getElementById("cartDetails");
+
+    box.style.display = "block";
+
+    if (cart.length === 0) {
+        box.innerHTML = "<h3>سبد خرید شما خالی است.</h3>";
+        return;
+    }
+
+    let total = 0;
+
+    let html = "<h3>سبد خرید شما</h3>";
+
+    cart.forEach((item, index) => {
+        total += item.price;
+
+        html += `
+            <div class="capacity-row"
+                 style="padding:8px 0;border-bottom:1px solid #444">
+
+                <span>
+                    ${item.name} -
+                    ${item.price.toLocaleString("fa-IR")} تومان
+                </span>
+
+                <button
+                    class="btn btn-outline"
+                    onclick="removeCartItem(${index})">
+                    حذف
+                </button>
+            </div>
+        `;
+    });
+
+    html += `
+        <h3 style="margin-top:15px">
+            جمع کل: ${total.toLocaleString("fa-IR")} تومان
+        </h3>
+
+        <button class="btn" onclick="sendCartToWhatsApp()">
+            ثبت سفارش در واتساپ
+        </button>
+    `;
+
+    box.innerHTML = html;
+}
+
+function removeCartItem(index) {
+    cart.splice(index, 1);
+
+    updateCartCount();
+    showCart();
+}
+
+function sendCartToWhatsApp() {
+    if (!cart.length) return;
+
+    let message =
+        "سلام، سفارش من از فروشگاه سالن آبنوس:\n";
+
+    let total = 0;
+
+    cart.forEach(item => {
+        message +=
+            `${item.name} - ${item.price.toLocaleString("en-US")} تومان\n`;
+
+        total += item.price;
+    });
+
+    message +=
+        `مجموع: ${total.toLocaleString("en-US")} تومان`;
+
+    window.open(
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
+        "_blank"
+    );
+}
+
+
+/* شروع تقویم با ماه و سال امروز */
+
+(function initCalendar() {
+    const today = getJalaliParts(new Date());
+
+    currentJYear = today.year;
+    currentJMonth = today.month;
+
+    renderCalendar();
+})();
+
+updateCartCount();
+
+</script>
+
+</body>
+</html>
